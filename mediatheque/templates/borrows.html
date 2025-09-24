@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Médiathèque - Emprunts{% endblock %}
+{% block content %}
+<h2>Nouvel emprunt</h2>
+<form action="{% url 'borrows' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- génère automatiquement le select + inputs -->
+    <button type="submit">Validez</button>
+</form>
+<h2>Liste des emprunts en cours</h2>
+<div>
+    {% for borrow in borrows %}
+    <div>
+        {{ borrow.media.type }} // {{ borrow.media }} // {{ borrow.member }} // {{ borrow.borrowing_date }} // {{ borrow.return_date }}
+        <form action="{% url 'return_borrow' borrow.id %}" method="POST" style="display: inline">
+            {% csrf_token %}
+            <button type="submit">Validez le retour</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mon site{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/members/">Membres</a>
+        <a href="/medias/">Médias</a>
+        <a href="/borrows/">Emprunts</a>
+        <a href="/admin/">Admin</a>
+    </nav>
+
+    {% block content %}
+    <!-- le contenu des pages enfants apparaîtra ici -->
+    {% endblock %}
+</body>
+</html>

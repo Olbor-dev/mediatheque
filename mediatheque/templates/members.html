@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Médiathèque - Membres{% endblock %}
+{% block content %}
+<h2>Ajouter un emprunteur</h2>
+<form action="{% url 'members' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- génère automatiquement le select + inputs -->
+    <button type="submit">Enregistrer</button>
+</form>
+<h2>Liste des emprunteurs</h2>
+<div>
+    {% for member in members %}
+        <div>
+            {{ member.lastname }} {{ member.firstname }}
+            <a href="{% url 'member_edit' member.id %}">Modifier</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

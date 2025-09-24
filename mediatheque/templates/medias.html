@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Médiathèque - Médias{% endblock %}
+{% block content %}
+<h2>Ajouter un média</h2>
+<form action="{% url 'medias' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- génère automatiquement le select + inputs -->
+    <button type="submit">Enregistrer</button>
+</form>
+<h2>Liste des médias</h2>
+<div>
+    {% for media in medias %}
+        <div>{{ media.title }} // {{ media.type }} // {{media.author }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
