@@ -1,0 +1,20 @@
+# IDE
+.idea/
+
+# Environnement virtuel
+.venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Base SQLite (on ne la versionne pas pour repartir sur une base propre)
+db.sqlite3
+
+# Fichiers générés par Django
+/media/          # fichiers uploadés (utilisateurs)
+staticfiles/     # résultat de collectstatic
+
+# Config privée
+.env
